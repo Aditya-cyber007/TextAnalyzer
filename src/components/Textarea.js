@@ -60,7 +60,7 @@ export default function Textarea(props) {
           value={text}
           onChange={handleOnchange}
           style={{
-            backgroundColor: props.mode === "light" ? "white" : "#042743",
+            backgroundColor: props.mode === "light" ? "white" : "#04274",
             color: props.mode === "light" ? "black" : "white",
           }}
           className="form-control my-3"
@@ -68,49 +68,49 @@ export default function Textarea(props) {
           id="myBox"
           rows="7"
         ></textarea>
-        <button
+        <button disabled={text.length===0}
           type="button"
           onClick={handleupClicked}
-          className="btn btn-outline-info mx-1  "
+          className="btn btn-outline-info mx-1 my-1  "
         >
           ToUpperCase
         </button>
-        <button
+        <button disabled={text.length===0}
           type="button"
           onClick={handleloClicked}
-          className="btn btn-outline-info mx-1  "
+          className="btn btn-outline-info mx-1 my-1  "
         >
           ToLowerCase
         </button>
 
-        <button
+        <button disabled={text.length===0}
           type="button"
           onClick={handleCapitle}
-          className="btn btn-outline-info mx-1  "
+          className="btn btn-outline-info mx-1 my-1  "
         >
           ToCapital
         </button>
 
-        <button
+        <button disabled={text.length===0}
           type="button"
           onClick={handleCopy}
-          className="btn btn-outline-info mx-1  "
+          className="btn btn-outline-info mx-1 my-1  "
         >
           Copy Text
         </button>
 
-        <button
+        <button disabled={text.length===0}
           type="button"
           onClick={handleExtraSpace}
-          className="btn btn-outline-info mx-1  "
+          className="btn btn-outline-info mx-1 my-1  "
         >
           Remove Extra Spaces
         </button>
 
-        <button
+        <button disabled={text.length===0}
           type="button"
           onClick={handleClear}
-          className="btn btn-outline-warning mx-1 "
+          className="btn btn-outline-warning mx-1 my-1 "
         >
           Clear
         </button>
@@ -122,14 +122,14 @@ export default function Textarea(props) {
       >
         <h2>{props.heading2}</h2>
         <p>
-          There are <b>{text.split(" ").length - 1}</b> words and{" "}
+          There are <b>{text.split(" ").filter((element)=>{return element.length!==0}).length}</b> words and{" "}
           <b>{text.length}</b> characters in your text.{" "}
         </p>
         <h4>Preview</h4>
         <p>
           {text.length > 0
             ? text
-            : "Enter something in text area to preview it here"}
+            : "Nothing to preview!"}
         </p>
       </div>
     </>
