@@ -60,7 +60,7 @@ export default function Textarea(props) {
           value={text}
           onChange={handleOnchange}
           style={{
-            backgroundColor: props.mode === "light" ? "white" : "#04274",
+            backgroundColor: props.mode === "light" ? "white" : "#042743",
             color: props.mode === "light" ? "black" : "white",
           }}
           className="form-control my-3"
@@ -122,7 +122,7 @@ export default function Textarea(props) {
       >
         <h2>{props.heading2}</h2>
         <p>
-          There are <b>{text.split(" ").filter((element)=>{return element.length!==0}).length}</b> words and{" "}
+          There are <b>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length}</b> words and{" "}
           <b>{text.length}</b> characters in your text.{" "}
         </p>
         <h4>Preview</h4>
